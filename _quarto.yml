@@ -2,24 +2,40 @@ project:
   type: book
 
 book:
-  title: "Molde"
-  author: "Norah Jones"
-  date: "29/8/2025"
+  title: "SERIES DE TIEMPO"
+  author: "Brayan Cubides"
+  repo-url: "https://github.com/bcubides-est/Series_de_tiempo"
+  repo-branch: main
+  favicon: logo.png
+  description: "Material del curso de Series de Tiempo"
+  url: "/Series_de_tiempo/"
+  page-navigation: true        # prev/next
+  sidebar:
+    tools:
+    - icon: globe
+      href: https://bcubides-est.github.io/website/
+      text: "Ir a mi web"
+
+    - icon: download
+      href: 'javascript:window.print()'
+      text: "Descargar (PDF)"
+    logo: logo.png
+    search: true    
+  image: logo.png
+  
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
-    - references.qmd
-
-bibliography: references.bib
+    - CONTENIDO/Capitulo_Ejemplo.qmd
 
 format:
   html:
     theme:
-      - cosmo
-      - brand
-  pdf:
-    documentclass: scrreprt
-
-editor: visual
-
+      light: cerulean #simplex 
+      dark: cyborg
+    css: custom.css
+    code-fold: false
+    toc-collapse: true  # Listas desplegables contraídas por defecto
+    toc-depth: 2
+    execute:
+      output-dir: _book
+    self-contained: false

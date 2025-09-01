@@ -31,3 +31,4 @@ jobs:
         with:
           branch: gh-pages
           folder: _book
+          clean: true  # This will ensure that only the specified folder is deployed

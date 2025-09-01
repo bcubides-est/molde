@@ -1,0 +1,22 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "SERIES DE TIEMPO",
+    "section": "",
+    "text": "Bienvenido a la sección de ———————\nSelecciona el tema que quieras ver a la derecha",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>INTRODUCCIÓN</span>"
+    ]
+  },
+  {
+    "objectID": "CONTENIDO/Capitulo_Ejemplo.html",
+    "href": "CONTENIDO/Capitulo_Ejemplo.html",
+    "title": "2  Repaso y Simulación Serie",
+    "section": "",
+    "text": "3 DISTRIBUCIÓN NORMAL BIVARIADA\nEsta sección limpia el entorno, define la secuencia para x e y, define la función de la distribución normal bivariada y genera el gráfico 3D de la densidad.\n\nx&lt;-seq(-6,6,length=40); y&lt;-x\n\n# Función Normal Bivariada\nf&lt;-function(x,y,mu=c(0,0),s=c(1,0,1))\n{\n  mu1&lt;-mu[1]; mu2&lt;-mu[2]\n  s11&lt;-s[1]; s12&lt;-s[2]; s22&lt;-s[3]; rho&lt;-s12/(s11*s22)\n  term1&lt;-1/(2*pi*sqrt(s11*s22*(1-rho^2)))\n  term2&lt;--1/(2*(1-rho^2))\n  term3&lt;-(x-mu1)^2/s11\n  term4&lt;-(y-mu2)^2/s22\n  term5&lt;--2*rho*((x-mu1)*(y-mu2))/(sqrt(s11)*sqrt(s22))\n  term1*exp(term2*(term3+term4-term5))\n} \n\nz&lt;-outer(x,y,f,s=c(5,12.5,5)) # matriz de densidades\n\npersp(x, y, z, col=\"lightsalmon\", theta=30, phi=20, r=50, d=0.1, expand=0.5, ltheta=90,\n      main=\"Distribuci?n Normal Bivariada\", lphi=180, shade=0.3, ticktype=\"detailed\",\n      nticks=5, cex.axis=0.7, zlab='Densidad')\nmtext(expression(list(mu[x]==0, mu[y]==0, sigma[x]==5, sigma[y]==5,\n                      sigma[xy]==12.5, rho==0.5)), side=3)\n\n\n\n\n\n\n\n\n\n\n4 DISTRIBUCIÓN NORMAL UNIVARIADA 1\nSe explora la normal univariada variando la media y la varianza.\n\n# Variando la media de la distribución\npar(mfrow=c(1,1))\nmu&lt;-c(0,2,4,-5);\ncurve(dnorm(x), xlim=c(-10,10), main=expression('Distribuci?n Normal '*sigma==1), lwd=2,\n      ylab='Densidad')\ncurve(dnorm(x,2,1), col=2, lwd=2, add=T)\ncurve(dnorm(x,4,1), col=3, lwd=2, add=T)\ncurve(dnorm(x,-5,1), col=4, lwd=2, add=T)\nfor(i in 1:4){ polygon(c(mu[i], mu[i]), c(0, dnorm(mu[i], mu[i], 1)), border=i, lty=4, lwd=2) }\nlegend('toprigh', lty=1, col=1:4, lwd=2, legend=c(expression(mu==0), expression(mu==2),\n                                               expression(mu==4), expression(mu==-5)))\n\n\n\n\n\n\n\n# Variando la varianza de la distribución\nsig&lt;-c(1,0.7,2); sig&lt;-cbind(-sig,sig)\ncurve(dnorm(x), lwd=2, ylim=c(0,0.6), xlim=c(-5,5), ylab='Densidad',\n      main=expression('Distribuci?n Normal '*mu==0))\ncurve(dnorm(x,0,sig[2,2]), col=2, lwd=2, add=T)\ncurve(dnorm(x,0,sig[3,2]), col=3, lwd=2, add=T)\nfor(i in 1:3){ polygon(sig[i,], dnorm(sig[i,],0,sig[i,2]), border=i, lty=4, lwd=2) }\nlegend('toprigh', lty=1, col=1:3, lwd=2, legend=c(expression(sigma==1), expression(sigma==0.7),\n                                                expression(sigma==2)))\n\n\n\n\n\n\n\nlibrary(moments)\nkurtosis(dnorm(x))\n\n[1] 3.492781\n\nkurtosis(dnorm(x,0,sig[2,2]))\n\n[1] 5.464751\n\nkurtosis(dnorm(x,0,sig[3,2]))\n\n[1] 1.653145\n\n\n\n\n5 DISTRIBUCIÓN NORMAL UNIVARIADA 2\nEn esta sección se simulan datos normales, se trazan la serie, el histograma, la curva teórica y la estimación de densidad, además de visualizar la distribución acumulada y calcular algunos momentos.\n\nx1&lt;- rnorm(1000, mean=0, sd=1)\npar(mfrow=c(1,1))\nplot(x1, type=\"l\")\n\n\n\n\n\n\n\nhist(x1, freq=FALSE, xlim=c(-4, 4))\ncurve(dnorm(x), add=T, col=\"blue\")\nlines(density(x1), lwd=2, col=\"darkred\")\n\n\n\n\n\n\n\nplot(pnorm(seq(-4,4, length.out=1000)), col=2, ylab=\"\", main=\"Distribucion Acumulada\")\n\n\n\n\n\n\n\n# Momentos de una variable:\nlibrary(moments)\nmedia    &lt;- mean(x1)\nvarianza &lt;- var(x1)\nsesgo    &lt;- skewness(x1)\ncurtosis &lt;- kurtosis(x1)\n\nmedia  \n\n[1] 0.008487366\n\nvarianza \n\n[1] 0.9349741\n\nsesgo  \n\n[1] 0.1938528\n\ncurtosis\n\n[1] 2.993665",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Repaso y Simulación Serie</span>"
+    ]
+  }
+]

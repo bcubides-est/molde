@@ -2,13 +2,13 @@ project:
   type: book
 
 book:
-  title: "SERIES DE TIEMPO"
+  title: "NOMBRE DE CURSO"
   author: "Brayan Cubides"
-  repo-url: "https://github.com/bcubides-est/Series_de_tiempo"
+  repo-url: "https://github.com/bcubides-est/molde"
   repo-branch: main
   favicon: logo.png
-  description: "Material del curso de Series de Tiempo"
-  url: "/Series_de_tiempo/"
+  description: "Material del curso ---"
+  url: "/molde/"
   page-navigation: true        # prev/next
   sidebar:
     tools:

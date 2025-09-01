@@ -1,9 +1,12 @@
-# Preface {.unnumbered}
+---
+title: "INTRODUCCIÓN"
+code-tools: true
+lightbox: true
+toc: true
+toc-location: right
+#number-sections: true
+---
 
-This is a Quarto book.
+# Bienvenido a la sección del curso ------------- {.unnumbered}
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
-
-```{r}
-1 + 1
-```
+Selecciona el tema que quieras ver a la derecha
